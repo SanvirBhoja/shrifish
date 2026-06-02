@@ -1,0 +1,79 @@
+.challenge-prompt {
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.2), rgba(239, 68, 68, 0.2));
+  border: 2px solid var(--warning-color);
+  border-radius: 12px;
+  padding: 2rem;
+  animation: pulseIn 0.5s ease-out;
+}
+
+@keyframes pulseIn {
+  from {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.challenge-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.challenge-content h3 {
+  font-size: 1.5rem;
+  color: var(--warning-color);
+  margin: 0;
+}
+
+.challenge-content p {
+  margin: 0;
+  color: var(--text-secondary);
+  text-align: center;
+}
+
+.challenge-content .btn-large {
+  margin-top: 0.5rem;
+}
+
+.time-indicator {
+  width: 100%;
+  max-width: 300px;
+  background-color: rgba(15, 23, 42, 0.8);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  overflow: hidden;
+  padding-top: 0.5rem;
+}
+
+.time-bar {
+  height: 8px;
+  background: linear-gradient(90deg, var(--secondary-color), var(--warning-color));
+  transition: width 0.1s linear;
+}
+
+.time-indicator p {
+  margin: 0.5rem 0 0 0;
+  text-align: center;
+  font-weight: 600;
+  color: var(--warning-color);
+  font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+  .challenge-prompt {
+    padding: 1.5rem;
+  }
+
+  .challenge-content h3 {
+    font-size: 1.3rem;
+  }
+
+  .challenge-content p {
+    font-size: 0.95rem;
+  }
+}

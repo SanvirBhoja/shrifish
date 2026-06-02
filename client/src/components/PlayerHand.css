@@ -1,0 +1,130 @@
+.player-hand {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.hand-section,
+.books-section {
+  background-color: rgba(15, 23, 42, 0.5);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.hand-section h4,
+.books-section h4 {
+  margin-bottom: 1rem;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
+.cards-display {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: flex-start;
+}
+
+.card {
+  width: 60px;
+  height: 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid var(--border-color);
+  border-radius: 8px;
+  background-color: var(--surface-color);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 600;
+}
+
+.card.card-red {
+  color: #ef4444;
+}
+
+.card.card-black {
+  color: #000;
+  background-color: #f1f5f9;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  border-color: var(--primary-color);
+}
+
+.card-rank {
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.card-suit {
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
+.books-display {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.book {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  height: 80px;
+  background: linear-gradient(135deg, var(--secondary-color), #047857);
+  border: 2px solid var(--secondary-color);
+  border-radius: 8px;
+  color: white;
+  font-weight: 700;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+}
+
+.book-rank {
+  font-size: 1.2rem;
+}
+
+.book-label {
+  font-size: 0.65rem;
+  opacity: 0.9;
+}
+
+.book:hover {
+  transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+  .cards-display {
+    gap: 0.5rem;
+  }
+
+  .card {
+    width: 50px;
+    height: 70px;
+    font-size: 0.9rem;
+  }
+
+  .card-rank {
+    font-size: 0.85rem;
+  }
+
+  .card-suit {
+    font-size: 1rem;
+  }
+
+  .book {
+    width: 50px;
+    height: 70px;
+  }
+
+  .book-rank {
+    font-size: 1rem;
+  }
+}

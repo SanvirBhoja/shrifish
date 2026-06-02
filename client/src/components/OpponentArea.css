@@ -1,0 +1,107 @@
+.opponent-area {
+  background-color: var(--surface-color);
+  border: 2px solid var(--border-color);
+  border-radius: 12px;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.opponent-area.current-turn {
+  border-color: var(--warning-color);
+  background-color: rgba(245, 158, 11, 0.1);
+}
+
+.opponent-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.opponent-header h4 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.turn-indicator {
+  background-color: var(--warning-color);
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.opponent-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.stat-label {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.stat-value {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--primary-color);
+}
+
+.opponent-books {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.opponent-book {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 45px;
+  height: 45px;
+  background: linear-gradient(135deg, var(--secondary-color), #047857);
+  border: 1px solid var(--secondary-color);
+  border-radius: 6px;
+  color: white;
+  font-weight: 700;
+  font-size: 0.85rem;
+  box-shadow: 0 2px 6px rgba(16, 185, 129, 0.2);
+}
+
+.opponent-book:hover {
+  transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+  .opponent-area {
+    padding: 1rem;
+  }
+
+  .opponent-header h4 {
+    font-size: 1rem;
+  }
+
+  .stat-value {
+    font-size: 1.1rem;
+  }
+
+  .opponent-book {
+    width: 40px;
+    height: 40px;
+    font-size: 0.75rem;
+  }
+}

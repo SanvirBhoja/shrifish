@@ -1,0 +1,146 @@
+.game-end {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 200px);
+}
+
+.game-end-content {
+  background-color: var(--surface-color);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 3rem;
+  max-width: 600px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+}
+
+.winner-title {
+  font-size: 2.5rem;
+  background: linear-gradient(135deg, var(--secondary-color), #fbbf24);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin: 0 0 1rem 0;
+  animation: slideDown 0.5s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.winner-name {
+  font-size: 1.8rem;
+  color: var(--primary-color);
+  margin: 0 0 2rem 0;
+  font-weight: 700;
+}
+
+.game-end-content h2 {
+  margin: 0 0 1rem 0;
+  font-size: 2rem;
+}
+
+.winner-text {
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+  margin: 0 0 2rem 0;
+}
+
+.final-standings {
+  background-color: rgba(99, 102, 241, 0.1);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 2rem;
+  margin: 2rem 0;
+}
+
+.final-standings h3 {
+  margin: 0 0 1.5rem 0;
+  color: var(--primary-color);
+}
+
+.standings-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.standing-item {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1rem;
+  background-color: rgba(15, 23, 42, 0.5);
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  transition: all 0.3s ease;
+}
+
+.standing-item.winner {
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.2), rgba(99, 102, 241, 0.2));
+  border-color: var(--secondary-color);
+}
+
+.standing-item.winner:hover {
+  transform: scale(1.02);
+}
+
+.position {
+  font-size: 1.5rem;
+  font-weight: 700;
+  min-width: 40px;
+}
+
+.standing-item .name {
+  color: var(--text-color);
+  font-weight: 600;
+  text-align: left;
+}
+
+.standing-item .books {
+  color: var(--secondary-color);
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.game-end-content .btn {
+  margin-top: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .game-end-content {
+    padding: 1.5rem;
+  }
+
+  .winner-title {
+    font-size: 2rem;
+  }
+
+  .winner-name {
+    font-size: 1.5rem;
+  }
+
+  .final-standings {
+    padding: 1.5rem;
+  }
+
+  .standing-item {
+    grid-template-columns: auto 1fr;
+    gap: 1rem;
+  }
+
+  .standing-item .books {
+    grid-column: 2;
+    justify-self: end;
+  }
+}

@@ -1,0 +1,38 @@
+version: '3.8'
+
+services:
+  server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=development
+      - PORT=3000
+    volumes:
+      - ./server/src:/app/server/src
+      - ./server/dist:/app/server/dist
+    command: npm run dev --workspace=server
+    networks:
+      - shrifish-network
+
+  client:
+    image: node:20-alpine
+    working_dir: /app/client
+    ports:
+      - "5173:5173"
+    volumes:
+      - ./client:/app/client
+      - /app/client/node_modules
+    environment:
+      - VITE_SERVER_URL=http://localhost:3000
+    command: npm run dev
+    networks:
+      - shrifish-network
+    depends_on:
+      - server
+
+networks:
+  shrifish-network:
+    driver: bridge
