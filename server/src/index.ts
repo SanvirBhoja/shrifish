@@ -2,8 +2,13 @@ import express from "express";
 import { createServer } from "http";
 import { Server, Socket } from "socket.io";
 import cors from "cors";
+import path from "path";
+import { fileURLToPath } from "url";
 import { v4 as uuidv4 } from "uuid";
 import { ShriFishGame } from "./game.js";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const app = express();
 const httpServer = createServer(app);
@@ -16,6 +21,9 @@ const io = new Server(httpServer, {
 
 app.use(cors());
 app.use(express.json());
+
+// Serve static files from client build
+app.use(express.static(path.join(__dirname, "../../client/dist")));
 
 const games = new Map<string, ShriFishGame>();
 const playerToGame = new Map<string, string>();
@@ -238,6 +246,11 @@ app.get("/api/games/:gameId", (req, res) => {
 
 app.get("/api/health", (req, res) => {
   res.json({ status: "ok", timestamp: new Date().toISOString() });
+});
+
+// Catch-all route - serve index.html for SPA
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../../client/dist/index.html"));
 });
 
 const PORT = process.env.PORT || 3000;
